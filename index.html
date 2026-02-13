@@ -667,7 +667,7 @@
                 </div>
             </div>
 
-            <div class="timer" id="timer">Time: 30s</div>
+            <div class="timer" id="timer">Time: 20s</div>
 
             <div class="game-area" id="gameArea">
                 <div class="celebration" id="celebration">🎉</div>
@@ -858,7 +858,7 @@
         // GAME LOGIC
         // ============================================
         let score = 0;
-        let timeLeft = 30;
+        let timeLeft = 20;
         let gameActive = false;
         let gameInterval;
         let timerInterval;
@@ -870,10 +870,10 @@
         function startGame() {
             // Reset game state
             score = 0;
-            timeLeft = 30;
+            timeLeft = 20;
             gameActive = true;
             document.getElementById('score').textContent = score;
-            document.getElementById('timer').textContent = 'Time: 30s';
+            document.getElementById('timer').textContent = 'Time: 20s';
             document.getElementById('startButton').disabled = true;
             document.getElementById('startButton').textContent = 'GAME IN PROGRESS...';
             document.getElementById('gameOverMessage').style.display = 'none';
@@ -884,7 +884,7 @@
             existingHearts.forEach(heart => heart.remove());
 
             // Start spawning hearts
-            heartSpawnInterval = setInterval(spawnHeart, 800);
+            heartSpawnInterval = setInterval(spawnHeart, 600);
 
             // Start timer
             timerInterval = setInterval(() => {
@@ -910,8 +910,8 @@
             heart.style.left = leftPosition + 'px';
             heart.style.top = '-50px';
             
-            // Random fall duration (3-6 seconds)
-            const fallDuration = 3 + Math.random() * 3;
+            // Random fall duration (2-3.5 seconds) - faster for more challenge
+            const fallDuration = 2 + Math.random() * 1.5;
             heart.style.animationDuration = fallDuration + 's';
             
             // Add click handler
