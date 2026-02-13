@@ -476,12 +476,175 @@
             }
         }
 
+        /* Vision Board Styles */
+        .vision-board-section {
+            margin-top: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .vision-board-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vision-board-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .vision-board-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--burgundy);
+            margin-bottom: 15px;
+        }
+
+        .vision-board-header p {
+            font-size: 22px;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+
+        .vision-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .vision-category {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid var(--rose-gold);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .vision-category:nth-child(1) { animation-delay: 0.2s; }
+        .vision-category:nth-child(2) { animation-delay: 0.3s; }
+        .vision-category:nth-child(3) { animation-delay: 0.4s; }
+        .vision-category:nth-child(4) { animation-delay: 0.5s; }
+        .vision-category:nth-child(5) { animation-delay: 0.6s; }
+        .vision-category:nth-child(6) { animation-delay: 0.7s; }
+
+        .vision-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 117, 139, 0.2);
+            border-color: var(--deep-rose);
+        }
+
+        .vision-category-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .vision-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--burgundy);
+            margin-bottom: 15px;
+        }
+
+        .vision-category p {
+            font-size: 18px;
+            color: var(--charcoal);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .vision-ideas {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--rose-gold);
+        }
+
+        .vision-ideas ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vision-ideas li {
+            font-size: 16px;
+            color: var(--charcoal);
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .vision-ideas li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .vision-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(232, 180, 168, 0.3), rgba(212, 117, 139, 0.2));
+            border-radius: 20px;
+            border: 2px solid var(--rose-gold);
+        }
+
+        .vision-cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+        }
+
+        .vision-cta p {
+            font-size: 20px;
+            color: var(--charcoal);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .vision-tools {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .vision-tool {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: 2px solid var(--rose-gold);
+            font-size: 18px;
+            color: var(--burgundy);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .vision-tool:hover {
+            background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(212, 117, 139, 0.3);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 48px;
             }
             .hearts-grid {
                 grid-template-columns: 1fr;
+            }
+            .vision-categories {
+                grid-template-columns: 1fr;
+            }
+            .vision-board-header h2 {
+                font-size: 36px;
             }
         }
     </style>
@@ -581,6 +744,113 @@
             <div class="big-heart">❤️</div>
             <p>Thank you for being my partner, my best friend, and my greatest love. Here's to us, to our wedding, and to all the beautiful days ahead.</p>
             <div class="big-heart">💑</div>
+        </div>
+
+        <!-- Vision Board Section -->
+        <div class="vision-board-section" id="visionBoard">
+            <div class="vision-board-header">
+                <h2>Our Future Together 🌟</h2>
+                <p>Let's dream about all the amazing things we'll experience as husband and wife</p>
+            </div>
+
+            <div class="vision-categories">
+                <div class="vision-category">
+                    <span class="vision-category-icon">✈️</span>
+                    <h3>Travel Dreams</h3>
+                    <p>All the places we want to explore together</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>Romantic getaways to Paris or Santorini</li>
+                            <li>Adventure trips hiking through mountains</li>
+                            <li>Beach vacations where we can relax together</li>
+                            <li>Cultural experiences discovering new cities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vision-category">
+                    <span class="vision-category-icon">💍</span>
+                    <h3>Our Milestones</h3>
+                    <p>Special moments we're building toward</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>Our beautiful wedding day</li>
+                            <li>Building our first home together</li>
+                            <li>Growing our family when we're ready</li>
+                            <li>Celebrating anniversaries year after year</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vision-category">
+                    <span class="vision-category-icon">🎭</span>
+                    <h3>Shared Experiences</h3>
+                    <p>Adventures and memories to create</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>Concert nights dancing to our favorite music</li>
+                            <li>Trying new restaurants and cuisines</li>
+                            <li>Weekend road trips to nowhere special</li>
+                            <li>Learning new hobbies together</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vision-category">
+                    <span class="vision-category-icon">🌱</span>
+                    <h3>Growing Together</h3>
+                    <p>Supporting each other's dreams</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>Encouraging career goals and ambitions</li>
+                            <li>Personal growth and learning</li>
+                            <li>Building our financial future</li>
+                            <li>Staying healthy and active together</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vision-category">
+                    <span class="vision-category-icon">🏡</span>
+                    <h3>Our Life Together</h3>
+                    <p>The home and life we're creating</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>A cozy home filled with love and laughter</li>
+                            <li>Sunday morning breakfast traditions</li>
+                            <li>Movie nights curled up on the couch</li>
+                            <li>Creating our own family traditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vision-category">
+                    <span class="vision-category-icon">✨</span>
+                    <h3>Little Joys</h3>
+                    <p>The small moments that matter most</p>
+                    <div class="vision-ideas">
+                        <ul>
+                            <li>Cooking dinner together after work</li>
+                            <li>Long walks talking about everything</li>
+                            <li>Surprising each other "just because"</li>
+                            <li>Lazy weekend mornings sleeping in</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vision-cta">
+                <h3>Let's Create Our Vision Board Together! 💕</h3>
+                <p>These are just ideas to get us started. Let's build our own vision board where we can add our dreams, goals, and all the adventures we want to share. We can work on it together and watch as our dreams come true!</p>
+                
+                <div class="vision-tools">
+                    <a href="https://www.canva.com/" target="_blank" class="vision-tool">📱 Try Canva</a>
+                    <a href="https://miro.com/" target="_blank" class="vision-tool">🎨 Try Miro</a>
+                    <a href="https://www.pinterest.com/" target="_blank" class="vision-tool">📌 Try Pinterest</a>
+                </div>
+                
+                <p style="margin-top: 25px; font-size: 18px; font-style: italic;">Or let's create physical boards together on our next video call! ❤️</p>
+            </div>
         </div>
     </div>
     </div> <!-- End of mainScreen -->
@@ -756,6 +1026,11 @@
                     setTimeout(() => {
                         document.getElementById('finalMessage').classList.add('show');
                         document.querySelector('.instruction').style.display = 'none';
+                        
+                        // Show vision board after final message
+                        setTimeout(() => {
+                            document.getElementById('visionBoard').classList.add('show');
+                        }, 1000);
                     }, 500);
                 }
             }
